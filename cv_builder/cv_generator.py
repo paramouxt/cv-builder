@@ -6,6 +6,7 @@ import os
 from typing import Optional
 
 from fpdf import FPDF
+from fpdf.enums import XPos, YPos
 
 from cv_builder.models import UserProfile
 from cv_builder.templates import CVTemplate, MODERN_TEMPLATE
@@ -90,7 +91,7 @@ class _CVDocument(FPDF):
         # Name
         self.set_font(f.family, "B", f.size_name)
         self.set_text_color(*c.primary)
-        self.cell(0, 10, pi.full_name, ln=True, align="C")
+        self.cell(0, 10, pi.full_name, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
 
         # Contact line
         self.set_font(f.family, "", f.size_small)
@@ -100,7 +101,7 @@ class _CVDocument(FPDF):
             contact_parts.append(pi.linkedin)
         if pi.portfolio:
             contact_parts.append(pi.portfolio)
-        self.cell(0, 5, "  |  ".join(contact_parts), ln=True, align="C")
+        self.cell(0, 5, "  |  ".join(contact_parts), new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
         self.ln(3)
         self._horizontal_rule()
 
@@ -204,7 +205,7 @@ class _CVDocument(FPDF):
             return
         self._section_title("Certifications")
         for cert in certs:
-            line = f"{cert.name} — {cert.issuing_org} ({cert.date})"
+            line = f"{cert.name} - {cert.issuing_org} ({cert.date})"
             if cert.expiry_date:
                 line += f", Expires: {cert.expiry_date}"
             self._bullet(line)
@@ -233,7 +234,7 @@ class _CVDocument(FPDF):
         f = self.tpl.fonts
         self.set_font(f.family, "B", f.size_section)
         self.set_text_color(*c.primary)
-        self.cell(0, 8, title.upper(), ln=True)
+        self.cell(0, 8, title.upper(), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self._horizontal_rule()
         self.ln(1)
 
@@ -248,12 +249,12 @@ class _CVDocument(FPDF):
         right_text = format_date_range(start, end) if start else ""
 
         # Print title on the left, date on the right
-        self.cell(0, 5, left_text, ln=False)
+        self.cell(0, 5, left_text, new_x=XPos.RIGHT, new_y=YPos.TOP)
         if right_text:
             self.set_x(-self.tpl.margins.right - 40)
             self.set_font(f.family, "", f.size_small)
             self.set_text_color(*c.secondary)
-            self.cell(40, 5, right_text, ln=True, align="R")
+            self.cell(40, 5, right_text, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="R")
         else:
             self.ln()
 
@@ -262,8 +263,8 @@ class _CVDocument(FPDF):
             self.set_text_color(*c.secondary)
             org_line = f"{org}"
             if location:
-                org_line += f"  ·  {location}"
-            self.cell(0, 4, org_line, ln=True)
+                org_line += f"  .  {location}"
+            self.cell(0, 4, org_line, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
     def _bullet(self, text: str) -> None:
         c = self.tpl.colors
@@ -272,14 +273,16 @@ class _CVDocument(FPDF):
         self.set_text_color(*c.text)
         indent = self.tpl.margins.left + 4
         self.set_x(indent)
-        self.multi_cell(0, self.tpl.line_height, f"•  {text}")
+        self.multi_cell(0, self.tpl.line_height, f"- {text}",
+                        new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
     def _body_text(self, text: str) -> None:
         c = self.tpl.colors
         f = self.tpl.fonts
         self.set_font(f.family, "", f.size_body)
         self.set_text_color(*c.text)
-        self.multi_cell(0, self.tpl.line_height, text)
+        self.multi_cell(0, self.tpl.line_height, text,
+                        new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
     def _labeled_line(self, label: str, value: str) -> None:
         c = self.tpl.colors
@@ -287,10 +290,12 @@ class _CVDocument(FPDF):
         self.set_font(f.family, "B", f.size_body)
         self.set_text_color(*c.secondary)
         label_width = 30
-        self.cell(label_width, self.tpl.line_height, f"{label}:")
+        self.cell(label_width, self.tpl.line_height, f"{label}:",
+                  new_x=XPos.RIGHT, new_y=YPos.TOP)
         self.set_font(f.family, "", f.size_body)
         self.set_text_color(*c.text)
-        self.multi_cell(0, self.tpl.line_height, value)
+        self.multi_cell(0, self.tpl.line_height, value,
+                        new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
     def _horizontal_rule(self) -> None:
         c = self.tpl.colors
