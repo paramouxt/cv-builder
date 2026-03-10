@@ -39,7 +39,7 @@ def build_filename(full_name: str, extension: str = "pdf") -> str:
 
 def format_date_range(start: str, end: str) -> str:
     """Format a start/end date range for display."""
-    return f"{start} – {end}"
+    return f"{start} - {end}"
 
 
 def list_to_bullet(items: list[str]) -> str:
