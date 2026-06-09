@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List
 
-from cv_builder.constants import JOB_ROLE_SKILLS, INDUSTRY_SKILL_MAP, SKILL_GAPS
+from cv_builder.constants import INDUSTRY_SKILL_MAP, JOB_ROLE_SKILLS, SKILL_GAPS
 from cv_builder.models import UserProfile
 
 
@@ -13,9 +12,9 @@ from cv_builder.models import UserProfile
 class JobRecommendation:
     title: str
     match_score: int  # 0-100
-    reasons: List[str] = field(default_factory=list)
-    skill_gaps: List[str] = field(default_factory=list)
-    industries: List[str] = field(default_factory=list)
+    reasons: list[str] = field(default_factory=list)
+    skill_gaps: list[str] = field(default_factory=list)
+    industries: list[str] = field(default_factory=list)
 
 
 def _extract_profile_keywords(profile: UserProfile) -> set[str]:

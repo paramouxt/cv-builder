@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import json
 import os
-from typing import Any
 
 from cv_builder.models import UserProfile
-
 
 PROGRESS_FILE = "cv_builder_progress.json"
 
@@ -23,7 +21,7 @@ def load_progress(filepath: str = PROGRESS_FILE) -> UserProfile | None:
     if not os.path.exists(filepath):
         return None
     try:
-        with open(filepath, "r", encoding="utf-8") as fh:
+        with open(filepath, encoding="utf-8") as fh:
             data = json.load(fh)
         return UserProfile.model_validate(data)
     except Exception:

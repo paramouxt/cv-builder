@@ -4,14 +4,39 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cv-builder"
-version = "1.0.0"
-description = "A Python CLI tool for building professional CVs and getting job recommendations"
+version = "2.0.0"
+description = "Build an ATS-ready CV, score it against any job description, and tailor it to the role - all offline, with an optional Claude API upgrade."
+readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Piyush Jain Sanjay" }]
+keywords = ["cv", "resume", "ats", "job-description", "career", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+]
 dependencies = [
     "fpdf2>=2.7.0",
     "rich>=13.0.0",
     "pydantic>=2.0.0",
+    "python-docx>=1.1.0",
 ]
+
+[project.optional-dependencies]
+# Optional: enables the Claude-powered enrichment of scoring and tailoring.
+# Without this (and an ANTHROPIC_API_KEY), everything still runs deterministically.
+ai = ["anthropic>=0.39.0"]
+dev = ["pytest>=7.0", "ruff>=0.5.0"]
+
+[project.urls]
+Homepage = "https://github.com/paramouxt/cv-builder"
+Repository = "https://github.com/paramouxt/cv-builder"
 
 [project.scripts]
 cv-builder = "cv_builder.main:main"
@@ -20,5 +45,16 @@ cv-builder = "cv_builder.main:main"
 where = ["."]
 include = ["cv_builder*"]
 
+[tool.setuptools.package-data]
+cv_builder = ["sample_data/*.json", "sample_data/*.txt"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501", "B008"]

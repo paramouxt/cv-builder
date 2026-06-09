@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
-from pydantic import BaseModel, EmailStr, field_validator
 import re
+
+from pydantic import BaseModel, field_validator
 
 
 class PersonalInfo(BaseModel):
@@ -12,9 +12,9 @@ class PersonalInfo(BaseModel):
     email: str
     phone: str
     location: str
-    linkedin: Optional[str] = None
-    portfolio: Optional[str] = None
-    summary: Optional[str] = None
+    linkedin: str | None = None
+    portfolio: str | None = None
+    summary: str | None = None
 
     @field_validator("email")
     @classmethod
@@ -31,16 +31,16 @@ class Education(BaseModel):
     institution: str
     start_date: str
     end_date: str
-    gpa: Optional[str] = None
-    honors: Optional[str] = None
-    notable_coursework: Optional[str] = None
+    gpa: str | None = None
+    honors: str | None = None
+    notable_coursework: str | None = None
 
 
 class Achievement(BaseModel):
     description: str
-    quantified_impact: Optional[str] = None
-    tools_used: Optional[str] = None
-    outcome: Optional[str] = None
+    quantified_impact: str | None = None
+    tools_used: str | None = None
+    outcome: str | None = None
 
 
 class WorkExperience(BaseModel):
@@ -49,8 +49,8 @@ class WorkExperience(BaseModel):
     location: str
     start_date: str
     end_date: str
-    achievements: List[Achievement] = []
-    reason_for_leaving: Optional[str] = None
+    achievements: list[Achievement] = []
+    reason_for_leaving: str | None = None
 
 
 class TechnicalSkill(BaseModel):
@@ -67,14 +67,14 @@ class Certification(BaseModel):
     name: str
     issuing_org: str
     date: str
-    expiry_date: Optional[str] = None
+    expiry_date: str | None = None
 
 
 class Skills(BaseModel):
-    technical: List[TechnicalSkill] = []
-    soft: List[str] = []
-    languages: List[Language] = []
-    certifications: List[Certification] = []
+    technical: list[TechnicalSkill] = []
+    soft: list[str] = []
+    languages: list[Language] = []
+    certifications: list[Certification] = []
 
 
 class Project(BaseModel):
@@ -83,31 +83,31 @@ class Project(BaseModel):
     technologies: str
     role: str
     outcomes: str
-    link: Optional[str] = None
-    problem_solved: Optional[str] = None
+    link: str | None = None
+    problem_solved: str | None = None
 
 
 class AdditionalInfo(BaseModel):
-    volunteer_work: Optional[str] = None
-    publications: Optional[str] = None
-    interests: Optional[str] = None
+    volunteer_work: str | None = None
+    publications: str | None = None
+    interests: str | None = None
 
 
 class JobPreferences(BaseModel):
-    desired_roles: List[str] = []
-    preferred_industries: List[str] = []
+    desired_roles: list[str] = []
+    preferred_industries: list[str] = []
     employment_type: str = "Full-time"
     work_mode: str = "Hybrid"
-    preferred_locations: List[str] = []
-    salary_expectation: Optional[str] = None
+    preferred_locations: list[str] = []
+    salary_expectation: str | None = None
     willing_to_relocate: bool = False
 
 
 class UserProfile(BaseModel):
-    personal_info: Optional[PersonalInfo] = None
-    education: List[Education] = []
-    work_experience: List[WorkExperience] = []
+    personal_info: PersonalInfo | None = None
+    education: list[Education] = []
+    work_experience: list[WorkExperience] = []
     skills: Skills = Skills()
-    projects: List[Project] = []
+    projects: list[Project] = []
     additional_info: AdditionalInfo = AdditionalInfo()
     job_preferences: JobPreferences = JobPreferences()

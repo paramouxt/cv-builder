@@ -1,13 +1,12 @@
 """Tests for input validators."""
 
-import pytest
 from cv_builder.validators import (
-    validate_email,
-    validate_url,
+    normalize_date,
     validate_date,
+    validate_email,
     validate_phone,
     validate_proficiency_level,
-    normalize_date,
+    validate_url,
 )
 
 

@@ -1,9 +1,9 @@
 """Tests for CV generation (PDF and plain text)."""
 
 import os
-import tempfile
 
 import pytest
+
 from cv_builder.cv_generator import CVGenerator, _build_text_cv
 from cv_builder.models import (
     Achievement,
