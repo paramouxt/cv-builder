@@ -2,16 +2,19 @@
 
 from __future__ import annotations
 
-import json
-import sys
-from typing import Callable, List, Optional
+from collections.abc import Callable
 
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Confirm, Prompt
 from rich.table import Table
-from rich import print as rprint
 
+from cv_builder.constants import (
+    EMPLOYMENT_TYPES,
+    LANGUAGE_PROFICIENCY_LEVELS,
+    TECHNICAL_PROFICIENCY_LEVELS,
+    WORK_MODES,
+)
 from cv_builder.models import (
     Achievement,
     AdditionalInfo,
@@ -26,20 +29,14 @@ from cv_builder.models import (
     UserProfile,
     WorkExperience,
 )
-from cv_builder.constants import (
-    EMPLOYMENT_TYPES,
-    LANGUAGE_PROFICIENCY_LEVELS,
-    TECHNICAL_PROFICIENCY_LEVELS,
-    WORK_MODES,
-)
+from cv_builder.utils import load_progress, save_progress
 from cv_builder.validators import (
+    normalize_date,
     validate_date,
     validate_email,
     validate_phone,
     validate_url,
-    normalize_date,
 )
-from cv_builder.utils import save_progress, load_progress, PROGRESS_FILE
 
 console = Console()
 
@@ -55,9 +52,9 @@ def _print_stage_header(stage: int, title: str) -> None:
     )
 
 
-def _ask(prompt: str, required: bool = True, default: Optional[str] = None,
-         validator: Optional[Callable[[str], bool]] = None,
-         hint: Optional[str] = None) -> str:
+def _ask(prompt: str, required: bool = True, default: str | None = None,
+         validator: Callable[[str], bool] | None = None,
+         hint: str | None = None) -> str:
     """Ask a single question with optional validation."""
     if hint:
         console.print(f"  [dim]{hint}[/dim]")
@@ -89,7 +86,7 @@ def _ask(prompt: str, required: bool = True, default: Optional[str] = None,
         return answer
 
 
-def _ask_choice(prompt: str, choices: list[str], default: Optional[str] = None) -> str:
+def _ask_choice(prompt: str, choices: list[str], default: str | None = None) -> str:
     """Ask the user to pick from a list of choices."""
     choices_str = " / ".join(choices)
     console.print(f"  [dim]Options: {choices_str}[/dim]")

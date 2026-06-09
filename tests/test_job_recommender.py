@@ -1,16 +1,13 @@
 """Tests for the job recommender engine."""
 
-import pytest
 from cv_builder.job_recommender import (
+    _extract_profile_keywords,
     recommend_jobs,
     suggest_industries,
-    _extract_profile_keywords,
 )
 from cv_builder.models import (
     Achievement,
-    Certification,
     JobPreferences,
-    Language,
     PersonalInfo,
     Project,
     Skills,

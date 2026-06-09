@@ -1,0 +1,31 @@
+Graduate Machine Learning Engineer
+
+About the role
+We're a London-based FinTech building tools that turn financial data into decisions.
+You'll join a small, fast-moving team and own real machine learning work from day one,
+from prototyping models to shipping them into our products.
+
+What you'll do
+- Build and evaluate machine learning and NLP models on financial and text data
+- Write clean, tested Python and help take models from notebook to production
+- Work with SQL databases to pull, clean, and analyse data
+- Collaborate closely with engineers and product on what to build next
+
+Required
+- Strong programming ability in Python
+- Solid grounding in machine learning fundamentals
+- Experience with NLP or working with text data
+- Comfortable with SQL and data analysis
+- A degree in Computer Science, AI, or a related field
+
+Preferred
+- Hands-on experience with PyTorch or another deep learning framework
+- Exposure to large language models (LLMs) or transformers
+- Familiarity with Git and collaborative development
+
+Nice to have
+- Experience with Docker or a cloud platform (AWS, GCP, or Azure)
+- An interest in financial markets
+
+We care about people who ship, take ownership, and learn fast. No specific years of
+experience required — strong graduates and self-taught builders are very welcome.

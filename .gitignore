@@ -19,4 +19,7 @@ env/
 # Generated CV files
 *_CV.pdf
 *_CV.txt
+*_CV.docx
 cv_builder_progress.json
+_demo_out/
+cv_builder_demo_output/

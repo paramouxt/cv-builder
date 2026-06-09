@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import os
-from typing import Optional
 
 from fpdf import FPDF
 from fpdf.enums import XPos, YPos
 
 from cv_builder.models import UserProfile
-from cv_builder.templates import CVTemplate, MODERN_TEMPLATE
+from cv_builder.templates import MODERN_TEMPLATE, CVTemplate
 from cv_builder.utils import build_filename, format_date_range
 
 
@@ -174,7 +173,9 @@ class _CVDocument(FPDF):
             self._labeled_line("Soft Skills", ", ".join(sk.soft))
 
         if sk.languages:
-            lang_str = ", ".join(f"{l.name} ({l.proficiency})" for l in sk.languages)
+            lang_str = ", ".join(
+                f"{language.name} ({language.proficiency})" for language in sk.languages
+            )
             self._labeled_line("Languages", lang_str)
 
         self.ln(self.tpl.section_spacing)
@@ -364,7 +365,9 @@ def _build_text_cv(profile: UserProfile) -> str:
         if sk.soft:
             lines.append(f"Soft Skills: {', '.join(sk.soft)}")
         if sk.languages:
-            lang = ", ".join(f"{l.name} ({l.proficiency})" for l in sk.languages)
+            lang = ", ".join(
+                f"{language.name} ({language.proficiency})" for language in sk.languages
+            )
             lines.append(f"Languages: {lang}")
 
     if profile.projects:

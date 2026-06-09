@@ -2,19 +2,17 @@
 
 import pytest
 from pydantic import ValidationError
+
 from cv_builder.models import (
-    PersonalInfo,
-    Education,
-    WorkExperience,
     Achievement,
-    TechnicalSkill,
+    Education,
     Language,
-    Certification,
-    Skills,
+    PersonalInfo,
     Project,
-    AdditionalInfo,
-    JobPreferences,
+    Skills,
+    TechnicalSkill,
     UserProfile,
+    WorkExperience,
 )
 
 

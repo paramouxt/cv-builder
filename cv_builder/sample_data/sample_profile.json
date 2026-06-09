@@ -1,0 +1,167 @@
+{
+  "personal_info": {
+    "full_name": "Piyush Jain Sanjay",
+    "email": "piyush.jainsanjay@example.com",
+    "phone": "+44 7000 000000",
+    "location": "Oxford, UK",
+    "linkedin": "https://www.linkedin.com/in/piyushjainsanjay",
+    "portfolio": "https://github.com/paramouxt",
+    "summary": "Final-year BSc Artificial Intelligence student (predicted First) with hands-on Python, NLP and machine learning experience from a financial-text dissertation and self-built projects. Comfortable turning messy data into working software, and drawn to AI and FinTech roles where I can ship and own real things."
+  },
+  "education": [
+    {
+      "degree": "BSc (Hons)",
+      "field_of_study": "Artificial Intelligence",
+      "institution": "Oxford Brookes University",
+      "start_date": "2023",
+      "end_date": "2027",
+      "gpa": null,
+      "honors": "Predicted First Class Honours",
+      "notable_coursework": "Dissertation: NLP sentiment signals and equity price volatility (FinBERT-based sentiment on financial text). Coursework across machine learning, software development, algorithms, and foundations of cyber security."
+    }
+  ],
+  "work_experience": [
+    {
+      "job_title": "Curriculum Consultant",
+      "company": "Oxford Brookes University (OCAED)",
+      "location": "Oxford, UK",
+      "start_date": "08/2024",
+      "end_date": "Present",
+      "achievements": [
+        {
+          "description": "Advocated student-led initiatives to make academic programmes more inclusive and relevant to a diverse student body",
+          "quantified_impact": null,
+          "tools_used": null,
+          "outcome": "Recommendations adopted into curriculum consultations"
+        },
+        {
+          "description": "Conducted research and used data to give evidence-based recommendations on academic programmes",
+          "quantified_impact": null,
+          "tools_used": "Data analysis",
+          "outcome": null
+        },
+        {
+          "description": "Served on the recruitment panel to select student partners and supported training sessions",
+          "quantified_impact": null,
+          "tools_used": null,
+          "outcome": "Strengthened project management and communication"
+        }
+      ],
+      "reason_for_leaving": null
+    },
+    {
+      "job_title": "Treasurer",
+      "company": "Brookes Hindu Society, Brookes Union",
+      "location": "Oxford, UK",
+      "start_date": "06/2024",
+      "end_date": "Present",
+      "achievements": [
+        {
+          "description": "Organised Navratri, a large-scale cultural festival, owning financial planning and budgeting end to end",
+          "quantified_impact": "100+ attendees; grew membership by over 100% and society budget by 200%",
+          "tools_used": null,
+          "outcome": "Most attended society event of the year"
+        },
+        {
+          "description": "Coordinated event volunteers and managed the society's finances across multiple events",
+          "quantified_impact": null,
+          "tools_used": null,
+          "outcome": null
+        }
+      ],
+      "reason_for_leaving": null
+    },
+    {
+      "job_title": "Student Ambassador",
+      "company": "Oxford Brookes University",
+      "location": "Oxford, UK",
+      "start_date": "11/2023",
+      "end_date": "Present",
+      "achievements": [
+        {
+          "description": "Handled prospective-student admission support, conveying complex application information clearly",
+          "quantified_impact": "100+ calls and emails handled daily during the summer admissions period",
+          "tools_used": "CRM software",
+          "outcome": null
+        },
+        {
+          "description": "Supported students with diverse enquiries during Clearing, one of the busiest days of the cycle",
+          "quantified_impact": null,
+          "tools_used": null,
+          "outcome": "Developed time management and quick problem-solving"
+        }
+      ],
+      "reason_for_leaving": null
+    }
+  ],
+  "skills": {
+    "technical": [
+      { "name": "Python", "proficiency": "Advanced" },
+      { "name": "NLP", "proficiency": "Intermediate" },
+      { "name": "Machine Learning", "proficiency": "Intermediate" },
+      { "name": "PyTorch", "proficiency": "Intermediate" },
+      { "name": "Data Analysis", "proficiency": "Intermediate" },
+      { "name": "Java", "proficiency": "Intermediate" },
+      { "name": "C++", "proficiency": "Intermediate" },
+      { "name": "C", "proficiency": "Intermediate" },
+      { "name": "SQL", "proficiency": "Beginner" },
+      { "name": "Git", "proficiency": "Advanced" }
+    ],
+    "soft": ["Communication", "Leadership", "Teamwork", "Problem Solving", "Financial Planning"],
+    "languages": [
+      { "name": "English", "proficiency": "Fluent" },
+      { "name": "Hindi", "proficiency": "Fluent" },
+      { "name": "Kannada", "proficiency": "Intermediate" },
+      { "name": "Italian", "proficiency": "Basic" }
+    ],
+    "certifications": []
+  },
+  "projects": [
+    {
+      "name": "NLP Sentiment Signals & Equity Volatility (Dissertation)",
+      "description": "Built a FinBERT-based sentiment classifier over financial text to test whether social-media sentiment predicts equity price volatility",
+      "technologies": "Python, PyTorch, transformers, FinBERT, pandas",
+      "role": "Sole researcher and developer",
+      "outcomes": "Delivered a rigorous, reproducible study; the sentiment signal showed no significant predictive edge — a clean null result honestly reported",
+      "link": null,
+      "problem_solved": "Isolating usable signal from noisy, high-volume financial social-media data"
+    },
+    {
+      "name": "CV Builder & Job-Fit Scorer",
+      "description": "A Python CLI that builds an ATS-ready CV, scores it against any job description, and tailors it to the role, with an optional Claude API upgrade",
+      "technologies": "Python, pydantic, python-docx, rich",
+      "role": "Author",
+      "outcomes": "Deterministic, offline scoring engine plus a pluggable LLM seam; published as an open-source repo",
+      "link": "https://github.com/paramouxt/cv-builder",
+      "problem_solved": "Tailoring a CV to a specific job quickly, without paying for a service or leaking data to one"
+    },
+    {
+      "name": "Grid-World RPG",
+      "description": "A role-playing game where the player navigates a grid-based world, collecting power-ups and defeating enemies to progress",
+      "technologies": "Python",
+      "role": "Developer",
+      "outcomes": "Playable game demonstrating game loop, state management, and OOP",
+      "link": null,
+      "problem_solved": null
+    }
+  ],
+  "additional_info": {
+    "volunteer_work": "Treasurer and event organiser for the Brookes Hindu Society",
+    "publications": null,
+    "interests": "Artificial intelligence, financial markets and investing, Formula 1, robotics"
+  },
+  "job_preferences": {
+    "desired_roles": [
+      "Machine Learning Engineer",
+      "AI Engineer",
+      "Data Scientist",
+      "AI/FinTech Graduate"
+    ],
+    "preferred_industries": ["Technology", "Finance"],
+    "employment_type": "Full-time",
+    "work_mode": "Hybrid",
+    "preferred_locations": ["London", "Oxford", "Remote"],
+    "salary_expectation": null,
+    "willing_to_relocate": true
+  }
+}

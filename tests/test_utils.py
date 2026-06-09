@@ -1,10 +1,6 @@
 """Tests for utility functions."""
 
-import json
-import os
-import tempfile
 
-import pytest
 from cv_builder.models import PersonalInfo, UserProfile
 from cv_builder.utils import (
     build_filename,
